@@ -13,5 +13,13 @@
   #filter-panel {
     flex-direction: column-reverse;
     align-items: center;
+
+    a {
+      margin: 0;
+    }
+
+    button {
+      padding: 12px 48px;
+    }
   }
 }
