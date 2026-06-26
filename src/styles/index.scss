@@ -59,6 +59,10 @@ a, a:visited {
   font-weight: 500;
 }
 
+.error {
+  color: var(--color-error);
+}
+
 #book-list-panel {
   display: flex;
   gap: 24px;
