@@ -1,7 +1,7 @@
 import If from "./components/If";
 import BookList from "./components/BookList";
 import useOwnersBooks from "./hooks/useOwnersBooks";
-import { BOOKTYPE, GENDER } from "../constants";
+import { GENDER } from "./constants";
 
 export default function App() {
   const { data, loading, error } = useOwnersBooks();

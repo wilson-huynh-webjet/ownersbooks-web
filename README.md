@@ -20,6 +20,12 @@ npm start
 
 The server runs at `http://localhost:9010` by default.  
 
+## Unit Test
+
+```bash
+npm test
+```
+
 ## Deployment 
 ### Build
 
