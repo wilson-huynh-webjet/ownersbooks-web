@@ -1,0 +1,6 @@
+// mobile breakpoint 600px
+@media (max-width: 600px) {
+  #book-list-panel {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,52 @@
+@use 'tokens';
+@use 'mobile.scss';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: var(--color-primary-text);
+}
+
+header {
+  margin-bottom: 24px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.header {
+  margin: 0;
+  background: var(--color-primary);
+  text-align: center;
+  color: white;
+  padding: 12px;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 24px;
+}
+
+#book-list-panel {
+  display: flex;
+  gap: 24px;
+  
+  .book-list {
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+  }
+}
