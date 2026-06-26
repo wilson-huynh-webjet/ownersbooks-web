@@ -40,6 +40,25 @@ main {
   padding: 0 24px;
 }
 
+button {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+a, a:visited {
+  color: var(--color-primary);
+  text-align: center;
+  vertical-align: middle;  
+  padding: 8px 4px;
+  font-weight: 500;
+}
+
 #book-list-panel {
   display: flex;
   gap: 24px;
@@ -49,4 +68,14 @@ main {
     background: #fff;
     overflow: hidden;
   }
+}
+
+#filter-panel {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  border-top: 1px solid #999;
+  margin: 24px 0;
+  padding: 24px;
+  text-align: right;
 }
