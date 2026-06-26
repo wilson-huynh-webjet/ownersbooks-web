@@ -4,8 +4,9 @@ export const GENDER = {
   FEMALE: "Female",
 };
 
-// BOOK_TYPE HARDCOVER and PAPERBACK
+// BOOKTYPE HARDCOVER, PAPERBACK and EBOOK
 export const BOOKTYPE = {
   HARDCOVER: "Hardcover",
   PAPERBACK: "Paperback",
+  EBOOK: "Ebook",
 };

@@ -2,9 +2,16 @@ import If from "./components/If";
 import BookList from "./components/BookList";
 import useOwnersBooks from "./hooks/useOwnersBooks";
 import { GENDER } from "./constants";
+import { useState } from "react";
 
 export default function App() {
   const { data, loading, error } = useOwnersBooks();
+  const [isHardcoverOnly, setIsHardcoverOnly] = useState(false);
+
+  const handleOnClick = (value) => (e) => {
+    e.preventDefault();
+    setIsHardcoverOnly(value);
+  }
 
   return (
     <>
@@ -20,12 +27,14 @@ export default function App() {
 
       <If condition={!loading && !error}>
         <div id="book-list-panel">
-          <BookList data={data} gender={GENDER.MALE} />
-          <BookList data={data} gender={GENDER.FEMALE} />
+          <BookList data={data} gender={GENDER.MALE} isHardcoverOnly={isHardcoverOnly} />
+          <BookList data={data} gender={GENDER.FEMALE} isHardcoverOnly={isHardcoverOnly} />
         </div>
         <div id="filter-panel">
-          <a href="#">Hardcover only</a>
-          <button>Get Books</button>
+          <a href="#" onClick={handleOnClick(true)}>
+            Hardcover only
+          </a>
+          <button onClick={handleOnClick(false)}>Get Books</button>
         </div>
       </If>
     </>

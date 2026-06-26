@@ -1,4 +1,4 @@
-import { GENDER } from "../constants";
+import { BOOKTYPE, GENDER } from "../constants";
 
 // function to group books by gender and sort them by name
 const sortBooksByGender = (data, gender) => {
@@ -12,4 +12,15 @@ const sortBooksByGender = (data, gender) => {
     .sort((a, b) => a.name.localeCompare(b.name));
 };
 
-export default sortBooksByGender;
+// function to filter books by hardcover type
+const filterBooksByHardcover = (books) => {
+  return books.filter((book) => book.type === BOOKTYPE.HARDCOVER);
+};
+
+
+const sortBooksByGenderAndType = (data, gender, isHardcoverOnly) => {
+  const books = sortBooksByGender(data, gender);
+  return isHardcoverOnly ? filterBooksByHardcover(books) : books;  
+};
+
+export default sortBooksByGenderAndType;
