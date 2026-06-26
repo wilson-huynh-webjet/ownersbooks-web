@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import requestApi from "../services/apiService.js";
 
-const apiUrl = `${import.meta.env.API_BASE_URL ?? ""}/books`;
+const apiUrl = `${import.meta.env.VITE_API_BASE_URL ?? ""}/books`;
 const useOwnersBooks = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
