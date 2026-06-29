@@ -1,10 +1,10 @@
-import sortBooksByGenderAndType from "../services/dataService";
-import If from "./If";
+import sortBooksByGenderAndType from "../services/dataService"
+import If from "./If"
 
 const BookList = ({ data, gender, isHardcoverOnly }) => {
-  const books = sortBooksByGenderAndType(data, gender, isHardcoverOnly);
-  const hasBooks = books?.length > 0;
-  const bookHeader = isHardcoverOnly ? "Hardcover Books" : "Books";
+  const books = sortBooksByGenderAndType(data, gender, isHardcoverOnly)
+  const hasBooks = books?.length > 0
+  const bookHeader = isHardcoverOnly ? "Hardcover Books" : "Books"
 
   return (
     <div className="book-list">
@@ -21,7 +21,7 @@ const BookList = ({ data, gender, isHardcoverOnly }) => {
         <p>There are no books</p>
       </If>
     </div>
-  );
-};
+  )
+}
 
-export default BookList;
+export default BookList

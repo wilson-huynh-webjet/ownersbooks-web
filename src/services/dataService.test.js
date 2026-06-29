@@ -1,5 +1,5 @@
-import sortBooksByGenderAndType from "./dataService.js";
-import { GENDER, BOOKTYPE } from "../constants.js";
+import sortBooksByGenderAndType from "./dataService.js"
+import { GENDER } from "../constants.js"
 
 describe("sortBooksByGenderAndType", () => {
   const inputData = [
@@ -45,7 +45,7 @@ describe("sortBooksByGenderAndType", () => {
         { name: "The Hobbit", type: "Ebook" },
       ],
     },
-  ];
+  ]
 
   it("converts inputData to expected output book list sorted by name", () => {
     expect(sortBooksByGenderAndType(inputData, GENDER.MALE)).toEqual([
@@ -55,27 +55,27 @@ describe("sortBooksByGenderAndType", () => {
       { name: "Jane Eyre", type: "Paperback" },
       { name: "React: The Ultimate Guide", type: "Hardcover" },
       { name: "Wuthering Heights", type: "Paperback" },
-    ]);
+    ])
 
     expect(sortBooksByGenderAndType(inputData, GENDER.FEMALE)).toEqual([
       { name: "Great Expectations", type: "Hardcover" },
       { name: "Hamlet", type: "Paperback" },
       { name: "Little Red Riding Hood", type: "Hardcover" },
       { name: "The Hobbit", type: "Ebook" },
-    ]);
-  });
+    ])
+  })
 
   it("converts inputData to expected output book list with Hardcover type only", () => {
     expect(sortBooksByGenderAndType(inputData, GENDER.MALE, true)).toEqual([
       { name: "Great Expectations", type: "Hardcover" },
       { name: "Gulliver's Travels", type: "Hardcover" },
       { name: "Hamlet", type: "Hardcover" },
-      { name: "React: The Ultimate Guide", type: "Hardcover" }
-    ]);
+      { name: "React: The Ultimate Guide", type: "Hardcover" },
+    ])
 
     expect(sortBooksByGenderAndType(inputData, GENDER.FEMALE, true)).toEqual([
       { name: "Great Expectations", type: "Hardcover" },
-      { name: "Little Red Riding Hood", type: "Hardcover" }
-    ]);
-  });
-});
+      { name: "Little Red Riding Hood", type: "Hardcover" },
+    ])
+  })
+})

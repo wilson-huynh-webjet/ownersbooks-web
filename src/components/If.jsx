@@ -1,8 +1,8 @@
 // If component to conditionally render children based on a boolean prop
-import React from "react";
+import "react"
 
 const If = ({ condition, children }) => {
-  return condition ? children : null;
-};
+  return condition ? children : null
+}
 
-export default If;
+export default If

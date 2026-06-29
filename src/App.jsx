@@ -1,16 +1,16 @@
-import If from "./components/If";
-import BookList from "./components/BookList";
-import useOwnersBooks from "./hooks/useOwnersBooks";
-import { GENDER } from "./constants";
-import { useState } from "react";
+import If from "./components/If"
+import BookList from "./components/BookList"
+import useOwnersBooks from "./hooks/useOwnersBooks"
+import { GENDER } from "./constants"
+import React, { useState } from "react"
 
 export default function App() {
-  const { data, loading, error } = useOwnersBooks();
-  const [isHardcoverOnly, setIsHardcoverOnly] = useState(false);
+  const { data, loading, error } = useOwnersBooks()
+  const [isHardcoverOnly, setIsHardcoverOnly] = useState(false)
 
   const handleOnClick = (value) => (e) => {
-    e.preventDefault();
-    setIsHardcoverOnly(value);
+    e.preventDefault()
+    setIsHardcoverOnly(value)
   }
 
   return (
@@ -20,9 +20,7 @@ export default function App() {
       </If>
 
       <If condition={error}>
-        <p className="error">
-          Error fetching data. Please try again later.
-        </p>
+        <p className="error">Error fetching data. Please try again later.</p>
       </If>
 
       <If condition={!loading && !error}>
@@ -38,5 +36,5 @@ export default function App() {
         </div>
       </If>
     </>
-  );
+  )
 }

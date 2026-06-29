@@ -1,7 +1,9 @@
-@use 'tokens';
-@use 'mobile.scss';
+@use "tokens";
+@use "mobile.scss";
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -52,10 +54,11 @@ button {
   white-space: nowrap;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: var(--color-primary);
   text-align: center;
-  vertical-align: middle;  
+  vertical-align: middle;
   padding: 8px 4px;
   font-weight: 500;
   margin-right: 8px;
@@ -69,7 +72,7 @@ a, a:visited {
 #book-list-panel {
   display: flex;
   gap: 24px;
-  
+
   .book-list {
     width: 100%;
     background: #fff;
