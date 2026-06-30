@@ -1,0 +1,11 @@
+@use "sass:color";
+@use "sass:meta";
+
+// Supports both Sass colors and CSS custom properties.
+@function darken-color($value, $amount: 10%) {
+  @if meta.type-of($value) == "color" {
+    @return color.adjust($value, $lightness: -$amount);
+  }
+
+  @return color-mix(in srgb, $value, black $amount);
+}
