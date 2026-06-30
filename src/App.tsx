@@ -1,14 +1,14 @@
 import If from "./components/If"
 import BookList from "./components/BookList"
 import useOwnersBooks from "./hooks/useOwnersBooks"
-import { GENDER } from "./constants"
+import { GENDER } from "./types"
 import React, { useState } from "react"
 
-export default function App() {
-  const { data, loading, error } = useOwnersBooks()
+const App = () => {
+  const { owners, loading, error } = useOwnersBooks()
   const [isHardcoverOnly, setIsHardcoverOnly] = useState(false)
 
-  const handleOnClick = (value) => (e) => {
+  const handleOnClick = (value: boolean) => (e: React.MouseEvent) => {
     e.preventDefault()
     setIsHardcoverOnly(value)
   }
@@ -19,14 +19,14 @@ export default function App() {
         <p>Loading...</p>
       </If>
 
-      <If condition={error}>
+      <If condition={!!error}>
         <p className="error">Error fetching data. Please try again later.</p>
       </If>
 
       <If condition={!loading && !error}>
         <div id="book-list-panel">
-          <BookList data={data} gender={GENDER.MALE} isHardcoverOnly={isHardcoverOnly} />
-          <BookList data={data} gender={GENDER.FEMALE} isHardcoverOnly={isHardcoverOnly} />
+          <BookList owners={owners} gender={GENDER.MALE} isHardcoverOnly={isHardcoverOnly} />
+          <BookList owners={owners} gender={GENDER.FEMALE} isHardcoverOnly={isHardcoverOnly} />
         </div>
         <div id="filter-panel">
           <a href="#" onClick={handleOnClick(true)}>
@@ -38,3 +38,5 @@ export default function App() {
     </>
   )
 }
+
+export default App

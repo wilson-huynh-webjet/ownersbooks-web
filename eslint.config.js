@@ -1,20 +1,21 @@
-import js from "@eslint/js";
-import globals from "globals";
-import react from "eslint-plugin-react";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import prettierConfig from "eslint-config-prettier";
+import js from "@eslint/js"
+import globals from "globals"
+import react from "eslint-plugin-react"
+import reactHooks from "eslint-plugin-react-hooks"
+import reactRefresh from "eslint-plugin-react-refresh"
+import prettierConfig from "eslint-config-prettier"
+import tseslint from "typescript-eslint"
 
-export default [
+export default tseslint.config(
   { ignores: ["dist", "node_modules"] },
   {
-    files: ["**/*.test.{js,jsx}"],
+    files: ["**/*.test.{ts,tsx}"],
     languageOptions: {
       globals: { ...globals.browser, ...globals.jest },
     },
   },
   {
-    files: ["**/*.{js,jsx}"],
+    files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -37,12 +38,11 @@ export default [
       ...reactHooks.configs.recommended.rules,
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
-      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     },
   },
+  ...tseslint.configs.recommended,
   prettierConfig,
-];
+)

@@ -1,9 +1,16 @@
 import sortBooksByGenderAndType from "../services/dataService"
 import If from "./If"
+import { Owner, Gender } from "../types"
 
-const BookList = ({ data, gender, isHardcoverOnly }) => {
-  const books = sortBooksByGenderAndType(data, gender, isHardcoverOnly)
-  const hasBooks = books?.length > 0
+interface BookListProps {
+  owners: Owner[]
+  gender: Gender
+  isHardcoverOnly: boolean
+}
+
+const BookList = ({ owners, gender, isHardcoverOnly }: BookListProps) => {
+  const books = sortBooksByGenderAndType(owners, gender, isHardcoverOnly)
+  const hasBooks = books.length > 0
   const bookHeader = isHardcoverOnly ? "Hardcover Books" : "Books"
 
   return (
